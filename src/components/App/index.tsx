@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../../styles/GlobalStyle';
 import dark from '../../styles/themes/dark';
 import light from '../../styles/themes/light';
+import Header from '../Header';
 import Router from '../Router';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <ThemeProvider theme={theme === 'light' ? light : dark}>
+        <Header currentTheme={theme} changeTheme={toggleTheme} />
         <Router />
       </ThemeProvider>
     </div>
