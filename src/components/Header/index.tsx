@@ -1,3 +1,5 @@
+import { HeaderContainer } from './styles';
+
 interface HeaderProps {
   currentTheme: string,
   changeTheme: () => void,
@@ -5,14 +7,16 @@ interface HeaderProps {
 
 function Header({ currentTheme, changeTheme }: HeaderProps) {
   return (
-    <header>
-      <h1>Where in the world?</h1>
-      <button type="button" onClick={changeTheme}>
-        {
-          currentTheme === 'light' ? 'Dark Mode' : 'Light Mode'
-        }
-      </button>
-    </header>
+    <HeaderContainer>
+      <div className="header-items-box">
+        <h1>Where in the world?</h1>
+        <button type="button" onClick={changeTheme}>
+          {
+            currentTheme === 'light' ? 'Dark Mode' : 'Light Mode'
+          }
+        </button>
+      </div>
+    </HeaderContainer>
   )
 }
 
