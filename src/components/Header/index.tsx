@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { HeaderContainer } from './styles';
 
 import sun from '../../assets/images/icons/sun.png';
@@ -12,7 +14,7 @@ function Header({ currentTheme, changeTheme }: HeaderProps) {
   return (
     <HeaderContainer>
       <div className="header-items-box">
-        <h1>Where in the world?</h1>
+        <Link to="/"><h1>Where in the world?</h1></Link>
         <button type="button" onClick={changeTheme}>
           {
             currentTheme === 'light' ? (
