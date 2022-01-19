@@ -8,7 +8,7 @@ import Header from '../Header';
 import Router from '../Router';
 
 function App() {
-  const [theme, setTheme] = useState<string>('light');
+  const [theme, setTheme] = useState<string>('dark');
 
   function toggleTheme() {
     setTheme(theme === 'light' ? 'dark' : 'light');
