@@ -7,7 +7,7 @@ function Header({ currentTheme, changeTheme }: HeaderProps) {
   return (
     <header>
       <h1>Where in the world?</h1>
-      <button type="button">
+      <button type="button" onClick={changeTheme}>
         {
           currentTheme === 'light' ? 'Dark Mode' : 'Light Mode'
         }
