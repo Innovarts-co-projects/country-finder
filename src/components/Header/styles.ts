@@ -38,11 +38,20 @@ const HeaderContainer = styled.header`
     border: 0;
     color: ${({ theme }) => theme.text};
 
+    display: flex;
+    align-items: center;
+
     font-size: 14px;
     font-weight: 600;
 
     cursor: pointer;
     transition: transform .24s ease-out;
+
+    img {
+      width: 2rem;
+      
+      margin-right: 1rem;
+    }
 
     &:hover {
       transform: scale(1.05);
