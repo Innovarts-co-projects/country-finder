@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../../styles/GlobalStyle';
 import dark from '../../styles/themes/dark';
 import light from '../../styles/themes/light';
+import Router from '../Router';
 
 function App() {
   const [theme, setTheme] = useState<string>('light');
@@ -16,7 +17,7 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <ThemeProvider theme={theme === 'light' ? light : dark}>
-        
+        <Router />
       </ThemeProvider>
     </div>
   );
