@@ -16,8 +16,8 @@ function App() {
 
   return (
     <div className="App">
-      <GlobalStyle />
       <ThemeProvider theme={theme === 'light' ? light : dark}>
+        <GlobalStyle />
         <Header currentTheme={theme} changeTheme={toggleTheme} />
         <Router />
       </ThemeProvider>
