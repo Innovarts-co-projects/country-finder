@@ -13,7 +13,7 @@ export default createGlobalStyle`
   }
 
   html, body {
-    background: ${({ theme }) => theme.background};
+    background: ${({ theme }) => theme.color.background};
   }
 
   a {
