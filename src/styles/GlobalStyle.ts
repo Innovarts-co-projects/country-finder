@@ -28,4 +28,12 @@ export default createGlobalStyle`
     margin: 0 auto;
     padding: 0 5rem;
   }
+
+  .scale-animate {
+    transition: transform .24s ease-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 `;

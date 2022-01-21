@@ -9,7 +9,6 @@ const CountryCardContainer = styled.div`
   margin-bottom: 4rem;
 
   box-shadow: ${({ theme }) => theme.measure.boxShadow};
-  transition: transform .24s ease-out;
 
   .image {
     img {
@@ -41,10 +40,6 @@ const CountryCardContainer = styled.div`
         font-weight: 600;
       }
     }
-  }
-
-  &:hover {
-    transform: scale(1.05);
   }
 `;
 

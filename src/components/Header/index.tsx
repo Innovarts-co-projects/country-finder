@@ -14,8 +14,8 @@ function Header({ currentTheme, changeTheme }: HeaderProps) {
   return (
     <HeaderContainer>
       <div className="header-items-box">
-        <Link to="/"><h1>Where in the world?</h1></Link>
-        <button type="button" onClick={changeTheme}>
+        <Link to="/"><h1 className="scale-animate">Where in the world?</h1></Link>
+        <button className="scale-animate" type="button" onClick={changeTheme}>
           {
             currentTheme === 'light' ? (
               <>

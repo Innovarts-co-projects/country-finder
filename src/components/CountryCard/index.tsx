@@ -11,7 +11,7 @@ function CountryCard({ country: { name, flags, population, region, capital } }: 
   console.log(name.common);
 
   return (
-    <CountryCardContainer>
+    <CountryCardContainer className="scale-animate">
       <Link to={`country/${name.common.toLowerCase()}`}>
         <div className="image">
           <img src={flags.svg} alt={`${name.common} flag`} />

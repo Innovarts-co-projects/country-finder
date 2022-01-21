@@ -26,11 +26,6 @@ const HeaderContainer = styled.header`
     color: ${({ theme }) => theme.color.text};
 
     cursor: pointer;
-    transition: transform .24s ease-out;
-
-    &:hover {
-      transform: scale(1.05);
-    }
   }
 
   button {
@@ -45,16 +40,11 @@ const HeaderContainer = styled.header`
     font-weight: 600;
 
     cursor: pointer;
-    transition: transform .24s ease-out;
 
     img {
       width: 2rem;
       
       margin-right: 1rem;
-    }
-
-    &:hover {
-      transform: scale(1.05);
     }
   }
 `;
