@@ -14,7 +14,7 @@ function Country({currentTheme}: CountryPageProps) {
   return (
     <CountryPageContainer className="page">
       <div className="link-wrapper">
-        <Link to="/">
+        <Link to="/" className="scale-animate">
           <img src={currentTheme === 'light' ? blackShapedArrow : whiteShapedArrow} alt="Arrow" />
           <span>Back</span>
         </Link>
