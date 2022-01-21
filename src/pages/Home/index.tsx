@@ -1,11 +1,16 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import axios from 'axios';
 
+import { HomePageProps } from '../interfaces';
 import { reqInterface } from './reqTypes';
+
 import { HomePageContainer } from './styles';
 import CountryCard from '../../components/CountryCard';
 
-function Home() {
+import blackSearchIcon from '../../assets/images/icons/black-search-icon.png';
+import whiteSearchIcon from '../../assets/images/icons/white-search-icon.png';
+
+function Home({ currentTheme }: HomePageProps) {
   const [countries, setCountries] = useState<reqInterface[] | null>(null);
 
   const [inputValue, setInputValue] = useState<string>('');
@@ -33,12 +38,16 @@ function Home() {
 
   return (
     <HomePageContainer>
-      <h1>Home page</h1>
       <div className="search">
-        <div className="input_field_wrapper">
-          <input type="text" value={inputValue} onChange={handleInputChange} />
+        <div className="input-field-wrapper input-pattern">
+          { currentTheme === 'light' ? (
+            <img src={blackSearchIcon} alt="Search Icon" />
+          ) : (
+            <img src={whiteSearchIcon} alt="Search Icon" />
+          ) }
+          <input type="text" value={inputValue} onChange={handleInputChange} placeholder="Search for a country..." />
         </div>
-        <select value={selectValue} onChange={handleSelectChange}>
+        <select className="input-pattern" value={selectValue} onChange={handleSelectChange}>
           <option value="initial" disabled>Filter by Region</option>
           <option value="africa">Africa</option>
           <option value="america">America</option>

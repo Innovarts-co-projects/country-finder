@@ -19,7 +19,7 @@ function App() {
       <ThemeProvider theme={theme === 'light' ? light : dark}>
         <GlobalStyle />
         <Header currentTheme={theme} changeTheme={toggleTheme} />
-        <Router />
+        <Router currentTheme={theme} />
       </ThemeProvider>
     </div>
   );
