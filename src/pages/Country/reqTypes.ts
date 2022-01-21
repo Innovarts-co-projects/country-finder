@@ -8,8 +8,6 @@ export interface countryReqInterface {
     }
   },
   capital: string[],
-  currencies: any,
-  languages: any,
   region: string,
   subregion: string,
   flags: {

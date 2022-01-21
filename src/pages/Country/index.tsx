@@ -8,6 +8,7 @@ import whiteShapedArrow from '../../assets/images/icons/white-shaped-arrow.png';
 import { CountryPageProps } from '../interfaces';
 import axios from 'axios';
 import { countryReqInterface } from './reqTypes';
+import CountryInfo from './CountryInfo';
 
 function Country({currentTheme}: CountryPageProps) {
   const params = useParams();
@@ -27,9 +28,27 @@ function Country({currentTheme}: CountryPageProps) {
     })();
   }, [params.countryId]);
 
-  useEffect(() => {
-    console.log(country);
-  }, [country]);
+  const countryInfoHelper = [
+    {
+      name: 'Native Name',
+      value: country?.name?.nativeName?.spa?.common || country?.name.common,
+    }, {
+      name: 'Population',
+      value: country?.population,
+    }, {
+      name: 'Region',
+      value: country?.region,
+    }, {
+      name: 'Sub Region',
+      value: country?.subregion,
+    }, {
+      name: 'Capital',
+      value: country?.capital[0],
+    }, {
+      name: 'Top Level Domain',
+      value: country?.tld[0],
+    }
+  ]
 
   return (
     <CountryPageContainer className="page">
@@ -46,7 +65,16 @@ function Country({currentTheme}: CountryPageProps) {
               <img src={country.flags.svg} alt="Country Flag" />
             </div>
             <div className="country-info">
-
+              <header>
+                <h2>{country.name.common}</h2>
+              </header>
+              <div className="basic-info">
+                {
+                  countryInfoHelper.map(({name, value}) => 
+                    <CountryInfo name={name} value={value} />
+                  )
+                }
+              </div>
             </div>
           </div>
         )
