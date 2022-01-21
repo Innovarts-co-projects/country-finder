@@ -13,6 +13,7 @@ export default createGlobalStyle`
   }
 
   a {
+    color: initial;
     text-decoration: none;
   }
 `;
