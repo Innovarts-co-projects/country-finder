@@ -15,9 +15,9 @@ function CountryCard({ country }: CountryCardProps) {
         </div>
         <div className="info">
           <h2>{country.name}</h2>
-          <p>Population: {country.population}</p>
-          <p>Region: {country.region}</p>
-          <p>Capital: {country.capital}</p>
+          <p><strong>Population:</strong> {country.population}</p>
+          <p><strong>Region:</strong> {country.region}</p>
+          <p><strong>Capital:</strong> {country.capital}</p>
         </div>
       </Link>
     </CountryCardContainer>
