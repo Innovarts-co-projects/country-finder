@@ -1,9 +1,12 @@
 export interface reqInterface {
-  name: string,
-  capital: string,
+  name: {
+    common: string,
+  },
+  capital: string[],
   region: string,
-  flag: string,
+  flags: {
+    svg: string,
+  },
   population: number,
-  alpha2Code: string,
-  alpha3Code: string,
+  area: number,
 }

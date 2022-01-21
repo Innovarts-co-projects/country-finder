@@ -6,18 +6,21 @@ interface CountryCardProps {
   country: reqInterface,
 }
 
-function CountryCard({ country }: CountryCardProps) {
+function CountryCard({ country: { name, flags, population, region, capital } }: CountryCardProps) {
+
+  console.log(name.common);
+
   return (
     <CountryCardContainer>
-      <Link to={`country/${country.name}`}>
+      <Link to={`country/${name.common.toLowerCase()}`}>
         <div className="image">
-          <img src={country.flag} alt={`${country.name} flag`} />
+          <img src={flags.svg} alt={`${name.common} flag`} />
         </div>
         <div className="info">
-          <h2>{country.name}</h2>
-          <p><strong>Population:</strong> {country.population}</p>
-          <p><strong>Region:</strong> {country.region}</p>
-          <p><strong>Capital:</strong> {country.capital}</p>
+          <h2>{name.common}</h2>
+          <p><strong>Population:</strong> {population}</p>
+          <p><strong>Region:</strong> {region}</p>
+          { capital && <p><strong>Capital:</strong> {capital[0]}</p> }
         </div>
       </Link>
     </CountryCardContainer>

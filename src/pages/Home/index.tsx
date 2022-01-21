@@ -11,7 +11,7 @@ function Home() {
   useEffect(() => {
     (async() => {
       try {
-        const countriesReq = await axios.get<reqInterface[]>('https://restcountries.com/v2/all');
+        const countriesReq = await axios.get<reqInterface[]>('https://restcountries.com/v3.1/all');
 
         setCountries(countriesReq.data);
       } catch (err) {
@@ -20,13 +20,20 @@ function Home() {
     })();
   }, []);
 
+  useEffect(() => {
+    console.log(countries);
+  }, [countries]);
+
   return (
     <HomePageContainer>
       <h1>Home page</h1>
       <div className="countries">
         {
-          countries && countries.map((country) => 
-            <CountryCard country={country} key={`${country.alpha2Code}${country.alpha3Code}`} />
+          countries && countries.map((country) => {
+            const countryKey = ((country.area + country.population) ^ 2) / 2;
+            
+            return <CountryCard country={country} key={countryKey} />
+          }
           )
         }
       </div>
