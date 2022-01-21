@@ -37,14 +37,10 @@ function Home({ currentTheme }: HomePageProps) {
   }
 
   return (
-    <HomePageContainer>
+    <HomePageContainer className="page">
       <div className="search">
         <div className="input-field-wrapper input-pattern">
-          { currentTheme === 'light' ? (
-            <img src={blackSearchIcon} alt="Search Icon" />
-          ) : (
-            <img src={whiteSearchIcon} alt="Search Icon" />
-          ) }
+          <img src={currentTheme === 'light' ? blackSearchIcon : whiteSearchIcon} alt="Search Icon" />
           <input type="text" value={inputValue} onChange={handleInputChange} placeholder="Search for a country..." />
         </div>
         <select className="input-pattern" value={selectValue} onChange={handleSelectChange}>
