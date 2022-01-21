@@ -6,13 +6,11 @@ interface CountryCardProps {
   country: reqInterface,
 }
 
-function CountryCard({ country: { name, flags, population, region, capital } }: CountryCardProps) {
-
-  console.log(name.common);
+function CountryCard({ country: { name, flags, population, region, capital, cca3 } }: CountryCardProps) {
 
   return (
     <CountryCardContainer className="scale-animate">
-      <Link to={`country/${name.common.toLowerCase()}`}>
+      <Link to={`country/id/${cca3}`}>
         <div className="image">
           <img src={flags.svg} alt={`${name.common} flag`} />
         </div>

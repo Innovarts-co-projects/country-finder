@@ -9,4 +9,5 @@ export interface reqInterface {
   },
   population: number,
   area: number,
+  cca3: string,
 }

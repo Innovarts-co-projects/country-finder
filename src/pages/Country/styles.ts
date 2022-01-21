@@ -27,6 +27,38 @@ const CountryPageContainer = styled.main`
       margin-right: 1rem;
     }
   }
+
+  .country-info-wrapper {
+    color: ${({ theme }) => theme.color.text};
+
+    display: flex;
+
+    .country-flag {
+      max-width: 600px;
+      flex: 1;
+
+      img {
+        width: 100%;
+      }
+    }
+    
+    .country-info {
+      padding: 3rem 5vw;
+    }
+
+    header {
+      font-size: 3.2rem;
+      margin-bottom: 3rem;
+    }
+
+    .basic-info {
+      font-size: 1.5rem;
+
+      p {
+        margin-bottom: .8rem;
+      }
+    }
+  }
 `;
 
 export { CountryPageContainer }

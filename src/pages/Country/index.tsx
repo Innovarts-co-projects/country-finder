@@ -8,7 +8,7 @@ import whiteShapedArrow from '../../assets/images/icons/white-shaped-arrow.png';
 import { CountryPageProps } from '../interfaces';
 import axios from 'axios';
 import { countryReqInterface } from './reqTypes';
-import CountryInfo from './CountryInfo';
+import CountryInfo, { CountryInfoProps } from './CountryInfo';
 
 function Country({currentTheme}: CountryPageProps) {
   const params = useParams();
@@ -19,7 +19,7 @@ function Country({currentTheme}: CountryPageProps) {
     (async() => {
       try {
         const countryReq = 
-        await axios.get(`https://restcountries.com/v3.1/name/${params.countryId}`);
+        await axios.get(`https://restcountries.com/v3.1/alpha/${params.countryId}`);
 
         setCountry(countryReq.data[0]);
       } catch (err) {
@@ -28,10 +28,14 @@ function Country({currentTheme}: CountryPageProps) {
     })();
   }, [params.countryId]);
 
+  useEffect(() => {
+    console.log(country);
+  }, [country]);
+
   const countryInfoHelper = [
     {
       name: 'Native Name',
-      value: country?.name?.nativeName?.spa?.common || country?.name.common,
+      value: country?.name?.nativeName?.spa?.common || country?.name?.common,
     }, {
       name: 'Population',
       value: country?.population,
@@ -43,10 +47,10 @@ function Country({currentTheme}: CountryPageProps) {
       value: country?.subregion,
     }, {
       name: 'Capital',
-      value: country?.capital[0],
+      value: country?.capital?.[0],
     }, {
       name: 'Top Level Domain',
-      value: country?.tld[0],
+      value: country?.tld?.[0],
     }
   ]
 
@@ -71,7 +75,7 @@ function Country({currentTheme}: CountryPageProps) {
               <div className="basic-info">
                 {
                   countryInfoHelper.map(({name, value}) => 
-                    <CountryInfo name={name} value={value} />
+                    <CountryInfo name={name} value={value} key={name} />
                   )
                 }
               </div>
