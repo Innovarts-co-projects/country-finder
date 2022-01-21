@@ -11,7 +11,15 @@ import blackSearchIcon from '../../assets/images/icons/black-search-icon.png';
 import whiteSearchIcon from '../../assets/images/icons/white-search-icon.png';
 
 function Home({ currentTheme }: HomePageProps) {
-  const [countries, setCountries] = useState<reqInterface[] | null>(null);
+  const [countries, setCountries] = useState<reqInterface[] | null>(() => {
+    let item = localStorage.getItem('countries');
+
+    if(item) {
+      return JSON.parse(item);
+    }
+
+    return null;
+  });
 
   const [inputValue, setInputValue] = useState<string>('');
   const [selectValue, setSelectValue] = useState<string>('');
@@ -27,6 +35,12 @@ function Home({ currentTheme }: HomePageProps) {
       }
     })();
   }, []);
+
+  useEffect(() => {
+    if(countries === null) return;
+
+    localStorage.setItem('countries', JSON.stringify(countries));
+  }, [countries]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
