@@ -13,4 +13,6 @@ export interface reqInterface {
   }[],
   borders: string[],
   topLevelDomain: string[],
+  alpha2Code: string,
+  alpha3Code: string,
 }
