@@ -8,7 +8,7 @@ import whiteShapedArrow from '../../assets/images/icons/white-shaped-arrow.png';
 import { CountryPageProps } from '../interfaces';
 import axios from 'axios';
 import { countryReqInterface } from './reqTypes';
-import CountryInfo, { CountryInfoProps } from './CountryInfo';
+import CountryInfo from './CountryInfo';
 
 function Country({currentTheme}: CountryPageProps) {
   const params = useParams();
