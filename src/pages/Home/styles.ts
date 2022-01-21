@@ -23,12 +23,12 @@ const HomePageContainer = styled.main`
       color: ${({ theme }) => theme.color.text};
 
       padding: 2rem;
+
+      box-shadow: ${({ theme }) => theme.measure.boxShadow};
     }
 
     .input-field-wrapper {
       max-width: 50rem;
-      
-      box-shadow: ${({ theme }) => theme.measure.boxShadow}; 
 
       display: flex;
       align-items: center;
