@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
-  background: ${({ theme }) => theme.elements};
+  background: ${({ theme }) => theme.color.elements};
   
   display: flex;
   justify-content: center;
@@ -9,8 +9,8 @@ const HeaderContainer = styled.header`
 
   height: 8rem;
 
-  -webkit-box-shadow: 0px -4px 15px 5px #000000; 
-  box-shadow: 0px -4px 15px 5px #000000;
+  -webkit-box-shadow: ${({ theme }) => theme.measure.boxShadow}; 
+  box-shadow: ${({ theme }) => theme.measure.boxShadow}; 
 
   .header-items-box {
     display: flex;
@@ -23,7 +23,7 @@ const HeaderContainer = styled.header`
   }
 
   h1 {
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.color.text};
 
     cursor: pointer;
     transition: transform .24s ease-out;
@@ -36,7 +36,7 @@ const HeaderContainer = styled.header`
   button {
     background: none;
     border: 0;
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.color.text};
 
     display: flex;
     align-items: center;

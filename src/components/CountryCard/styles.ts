@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 const CountryCardContainer = styled.div`
-  background: ${({ theme }) => theme.elements};
+  background: ${({ theme }) => theme.color.elements};
   border-radius: .8rem;
 
   width: 21%;
 
   margin-bottom: 4rem;
 
-  box-shadow: 3px 2px 8px 2px rgba(0,0,0,0.53);
+  box-shadow: ${({ theme }) => theme.measure.boxShadow};
   transition: transform .24s ease-out;
 
   .image {
@@ -21,7 +21,7 @@ const CountryCardContainer = styled.div`
   }
 
   .info {
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.color.text};
 
     padding: 2rem;
     padding-bottom: 3rem;
