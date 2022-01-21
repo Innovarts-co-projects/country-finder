@@ -10,7 +10,7 @@ function Router({currentTheme}: RouterProps) {
   return (
     <Routes>
       <Route path="/" element={<Home currentTheme={currentTheme} />} />
-      <Route path="/country/:countryId" element={<Country />} /> 
+      <Route path="/country/:countryId" element={<Country currentTheme={currentTheme} />} /> 
     </Routes>
   )
 }
