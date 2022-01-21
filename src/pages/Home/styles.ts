@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-import blackArrow from '../../assets/images/icons/black-arrow.png';
-import whiteArrow from '../../assets/images/icons/white-arrow.png';
-
 const HomePageContainer = styled.main`
   width: 100%;
   max-width: 1440px;
@@ -53,7 +50,7 @@ const HomePageContainer = styled.main`
       -webkit-appearance: none;
       -moz-appearance: none;
 
-      background-image: ${({ theme }) => theme.current === 'light' ? `url(${blackArrow})` : `url(${whiteArrow})`};
+      background-image: url(${({ theme }) => theme.image.themedSelectArrow});
       background-repeat: no-repeat;
       background-position: 90% center;
       background-size: 11px;
