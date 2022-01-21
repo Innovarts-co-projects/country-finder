@@ -25,6 +25,8 @@ function Home({ currentTheme }: HomePageProps) {
   const [selectValue, setSelectValue] = useState<string>('');
 
   useEffect(() => {
+    if(countries !== null) return;
+    
     (async() => {
       try {
         const countriesReq = await axios.get<reqInterface[]>('https://restcountries.com/v3.1/all');
@@ -34,7 +36,7 @@ function Home({ currentTheme }: HomePageProps) {
         console.error(err);
       }
     })();
-  }, []);
+  }, [countries]);
 
   useEffect(() => {
     if(countries === null) return;
