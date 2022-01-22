@@ -6,51 +6,33 @@ import { CountryPageContainer } from './styles';
 import blackShapedArrow from '../../assets/images/icons/black-shaped-arrow.png';
 import whiteShapedArrow from '../../assets/images/icons/white-shaped-arrow.png';
 import { CountryPageProps } from '../interfaces';
-import axios from 'axios';
-import { countryReqInterface } from './reqTypes';
 import CountryInfo from './CountryInfo';
+import useAxios from '../../hooks/useAxios';
 
 function Country({currentTheme}: CountryPageProps) {
   const params = useParams();
 
-  const [country, setCountry] = useState<countryReqInterface | null>(null);
-
-  useEffect(() => {
-    (async() => {
-      try {
-        const countryReq = 
-        await axios.get(`https://restcountries.com/v3.1/alpha/${params.countryId}`);
-
-        setCountry(countryReq.data[0]);
-      } catch (err) {
-        console.error(err);
-      }
-    })();
-  }, [params.countryId]);
-
-  useEffect(() => {
-    console.log(country);
-  }, [country]);
+  const [countryResponse, countryLoading] = useAxios(`https://restcountries.com/v3.1/alpha/${params.countryId}`);
 
   const countryInfoHelper = [
     {
       name: 'Native Name',
-      value: country?.name?.nativeName?.spa?.common || country?.name?.common,
+      value: countryResponse?.[0].name?.nativeName?.spa?.common || countryResponse?.[0].name?.common,
     }, {
       name: 'Population',
-      value: country?.population,
+      value: countryResponse?.[0].population,
     }, {
       name: 'Region',
-      value: country?.region,
+      value: countryResponse?.[0].region,
     }, {
       name: 'Sub Region',
-      value: country?.subregion,
+      value: countryResponse?.[0].subregion,
     }, {
       name: 'Capital',
-      value: country?.capital?.[0],
+      value: countryResponse?.[0].capital?.[0],
     }, {
       name: 'Top Level Domain',
-      value: country?.tld?.[0],
+      value: countryResponse?.[0].tld?.[0],
     }
   ]
 
@@ -63,14 +45,14 @@ function Country({currentTheme}: CountryPageProps) {
         </Link>
       </div>
       {
-        country && (
+        countryResponse && (
           <div className="country-info-wrapper">
             <div className="country-flag">
-              <img src={country.flags.svg} alt="Country Flag" />
+              <img src={countryResponse[0].flags.svg} alt="Country Flag" />
             </div>
             <div className="country-info">
               <header>
-                <h2>{country.name.common}</h2>
+                <h2>{countryResponse[0].name.common}</h2>
               </header>
               <div className="basic-info">
                 {

@@ -1,12 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { countryReqInterface } from '../pages/Country/reqTypes';
-import { reqInterface } from '../pages/Home/reqTypes';
+import { reqInterface } from '../interfaces';
 
-type ResponseType = reqInterface[] | countryReqInterface | null;
+type ResponseType = reqInterface[];
 
-function useAxios(url: string) {
-  const [response, setResponse] = useState<ResponseType>(null);
+function useAxios(url: string): [ResponseType | null, boolean] {
+  const [response, setResponse] = useState<ResponseType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {

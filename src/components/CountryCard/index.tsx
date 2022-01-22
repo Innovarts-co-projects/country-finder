@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { reqInterface } from '../../pages/Home/reqTypes';
+import { reqInterface } from '../../interfaces';
 import { CountryCardContainer } from './styles';
 
 interface CountryCardProps {

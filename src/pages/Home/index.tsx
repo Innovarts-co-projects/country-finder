@@ -2,13 +2,13 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import axios from 'axios';
 
 import { HomePageProps } from '../interfaces';
-import { reqInterface } from './reqTypes';
 
 import { HomePageContainer } from './styles';
 import CountryCard from '../../components/CountryCard';
 
 import blackSearchIcon from '../../assets/images/icons/black-search-icon.png';
 import whiteSearchIcon from '../../assets/images/icons/white-search-icon.png';
+import { reqInterface } from '../../interfaces';
 
 function Home({ currentTheme }: HomePageProps) {
   const [countries, setCountries] = useState<reqInterface[] | null>(() => {
