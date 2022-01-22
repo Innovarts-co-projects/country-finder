@@ -15,7 +15,7 @@ function CountryCard(props: CountryCardProps) {
     return null;
   }
 
-  if(regionSearchCondition !== '' && region !== regionSearchCondition ) {
+  if(regionSearchCondition !== '' && regionSearchCondition !== 'all' && region !== regionSearchCondition ) {
     return null;
   }
 

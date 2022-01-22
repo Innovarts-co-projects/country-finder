@@ -56,6 +56,7 @@ function Home({ currentTheme }: HomePageProps) {
         </div>
         <select className="input-pattern" value={selectValue} onChange={handleSelectChange}>
           <option value="" disabled>Filter by Region</option>
+          <option value="all">All</option>
           <option value="Africa">Africa</option>
           <option value="Americas">Americas</option>
           <option value="Asia">Asia</option>
