@@ -4,9 +4,20 @@ import { CountryCardContainer } from './styles';
 
 interface CountryCardProps {
   country: reqInterface,
+  textSearchCondition: string,
+  regionSearchCondition: string,
 }
 
-function CountryCard({ country: { name, flags, population, region, capital, cca3 } }: CountryCardProps) {
+function CountryCard(props: CountryCardProps) {
+  const { country: { name, flags, population, region, capital, cca3 }, textSearchCondition, regionSearchCondition } = props;
+
+  if(textSearchCondition !== '' && !name.common.toLowerCase().includes(textSearchCondition)) {
+    return null;
+  }
+
+  if(regionSearchCondition !== '' && region !== regionSearchCondition ) {
+    return null;
+  }
 
   return (
     <CountryCardContainer className="scale-animate">

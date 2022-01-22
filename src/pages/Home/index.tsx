@@ -16,7 +16,7 @@ function Home({ currentTheme }: HomePageProps) {
   const [countries, setCountries] = useState<reqInterface[] | null>(null);
 
   const [inputValue, setInputValue] = useState<string>('');
-  const [selectValue, setSelectValue] = useState<string>('initial');
+  const [selectValue, setSelectValue] = useState<string>('');
 
   useEffect(() => {
     let item = localStorage.getItem(STORAGE_KEY);
@@ -55,12 +55,12 @@ function Home({ currentTheme }: HomePageProps) {
           <input type="text" value={inputValue} onChange={handleInputChange} placeholder="Search for a country..." />
         </div>
         <select className="input-pattern" value={selectValue} onChange={handleSelectChange}>
-          <option value="initial" disabled>Filter by Region</option>
-          <option value="africa">Africa</option>
-          <option value="america">America</option>
-          <option value="asia">Asia</option>
-          <option value="europe">Europe</option>
-          <option value="oceania">Oceania</option>
+          <option value="" disabled>Filter by Region</option>
+          <option value="Africa">Africa</option>
+          <option value="Americas">Americas</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
         </select>
       </div>
       <div className="countries">
@@ -68,7 +68,7 @@ function Home({ currentTheme }: HomePageProps) {
           countries && countries.map((country) => {
             const countryKey = ((country.area + country.population) ^ 2) / 2;
             
-            return <CountryCard country={country} key={countryKey} />
+            return <CountryCard country={country} key={countryKey} textSearchCondition={inputValue.toLowerCase()} regionSearchCondition={selectValue} />
           }
           )
         }
