@@ -25,6 +25,19 @@ const HomePageContainer = styled.main`
       align-items: center;
     }
 
+    select.input-pattern {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+
+      background-image: url(${({ theme }) => theme.image.themedSelectArrow});
+      background-repeat: no-repeat;
+      background-position: 90% center;
+      background-size: 11px;
+
+      padding-right: 5rem;
+    }
+
     input {
       flex: 1;
 
@@ -37,17 +50,6 @@ const HomePageContainer = styled.main`
       &::placeholder {
         color: ${({ theme }) => theme.color.text};
       }
-    }
-
-    select {
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-
-      background-image: url(${({ theme }) => theme.image.themedSelectArrow});
-      background-repeat: no-repeat;
-      background-position: 90% center;
-      background-size: 11px;
     }
 
     img {

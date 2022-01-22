@@ -22,7 +22,7 @@ function Home({ currentTheme }: HomePageProps) {
   });
 
   const [inputValue, setInputValue] = useState<string>('');
-  const [selectValue, setSelectValue] = useState<string>('');
+  const [selectValue, setSelectValue] = useState<string>('initial');
 
   useEffect(() => {
     if(countries !== null) return;
