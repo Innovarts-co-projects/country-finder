@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 
 import { HomePageProps } from '../interfaces';
 
@@ -9,11 +9,23 @@ import blackSearchIcon from '../../assets/images/icons/black-search-icon.png';
 import whiteSearchIcon from '../../assets/images/icons/white-search-icon.png';
 import useAxios from '../../hooks/useAxios';
 
+const STORAGE_KEY = 'countries';
+
 function Home({ currentTheme }: HomePageProps) {
-  const [countries, isCountriesLoading] = useAxios('https://restcountries.com/v3.1/all', 'countries');
+  const firstRender = useRef(true);
+
+  const [apiCallURL, setApiCallURL] = useState<string>('https://restcountries.com/v3.1/all');
+  const [countries, isCountriesLoading] = useAxios(apiCallURL, STORAGE_KEY);
 
   const [inputValue, setInputValue] = useState<string>('');
   const [selectValue, setSelectValue] = useState<string>('initial');
+
+  useEffect(() => {
+    if (selectValue === 'initial') return;
+
+    localStorage.removeItem(STORAGE_KEY);
+    setApiCallURL(`https://restcountries.com/v3.1/region/${selectValue}`);
+  }, [selectValue]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
