@@ -30,7 +30,7 @@ function useAxios(url:string, storageKey?:string): [ResponseType | null, boolean
         setResponse(data);
         setLoading(false);
 
-        if(storageKey) {
+        if(storageKey && !url.includes('region')) {
           localStorage.setItem(storageKey, JSON.stringify(data));
         }
       } catch (err) {
