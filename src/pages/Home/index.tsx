@@ -1,5 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react';
-import axios from 'axios';
+import { ChangeEvent, useState } from 'react';
 
 import { HomePageProps } from '../interfaces';
 
@@ -8,11 +7,10 @@ import CountryCard from '../../components/CountryCard';
 
 import blackSearchIcon from '../../assets/images/icons/black-search-icon.png';
 import whiteSearchIcon from '../../assets/images/icons/white-search-icon.png';
-import { reqInterface } from '../../interfaces';
 import useAxios from '../../hooks/useAxios';
 
 function Home({ currentTheme }: HomePageProps) {
-  const [countries, setCountries] = useAxios('https://restcountries.com/v3.1/all', 'countries');
+  const [countries, isCountriesLoading] = useAxios('https://restcountries.com/v3.1/all', 'countries');
 
   const [inputValue, setInputValue] = useState<string>('');
   const [selectValue, setSelectValue] = useState<string>('initial');
