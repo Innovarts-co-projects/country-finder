@@ -1,39 +1,57 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
+
 import { CountryPageContainer } from './styles';
 
 import blackShapedArrow from '../../assets/images/icons/black-shaped-arrow.png';
 import whiteShapedArrow from '../../assets/images/icons/white-shaped-arrow.png';
+
 import { CountryPageProps } from '../interfaces';
+import { reqInterface } from '../../interfaces';
+
 import CountryInfo from './CountryInfo';
-import useAxios from '../../hooks/useAxios';
 
 function Country({currentTheme}: CountryPageProps) {
   const params = useParams();
 
-  const [countryResponse] = useAxios(`https://restcountries.com/v3.1/alpha/${params.countryId}`);
+  const [country, setCountry] = useState<reqInterface | null>(null);
 
   const countryInfoHelper = [
     {
       name: 'Native Name',
-      value: countryResponse?.[0].name?.nativeName?.spa?.common || countryResponse?.[0].name?.common,
+      value: country?.name?.nativeName?.spa?.common || country?.name?.common,
     }, {
       name: 'Population',
-      value: countryResponse?.[0].population,
+      value: country?.population,
     }, {
       name: 'Region',
-      value: countryResponse?.[0].region,
+      value: country?.region,
     }, {
       name: 'Sub Region',
-      value: countryResponse?.[0].subregion,
+      value: country?.subregion,
     }, {
       name: 'Capital',
-      value: countryResponse?.[0].capital?.[0],
+      value: country?.capital?.[0],
     }, {
       name: 'Top Level Domain',
-      value: countryResponse?.[0].tld?.[0],
+      value: country?.tld?.[0],
     }
   ]
+
+  useEffect(() => {
+    (async() => {
+      try {
+        const res = await axios.get(`https://restcountries.com/v3.1/alpha/${params.countryId}`);
+        const data = await res.data[0];
+
+        setCountry(data);
+      } catch (err) {
+        console.error(err);
+      }
+    })();
+  }, [params.countryId]);
 
   return (
     <CountryPageContainer className="page">
@@ -44,14 +62,14 @@ function Country({currentTheme}: CountryPageProps) {
         </Link>
       </div>
       {
-        countryResponse && (
+        country && (
           <div className="country-info-wrapper">
             <div className="country-flag">
-              <img src={countryResponse[0].flags.svg} alt="Country Flag" />
+              <img src={country.flags.svg} alt="Country Flag" />
             </div>
             <div className="country-info">
               <header>
-                <h2>{countryResponse[0].name.common}</h2>
+                <h2>{country.name.common}</h2>
               </header>
               <div className="basic-info">
                 {

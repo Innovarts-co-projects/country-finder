@@ -7,30 +7,37 @@ import CountryCard from '../../components/CountryCard';
 
 import blackSearchIcon from '../../assets/images/icons/black-search-icon.png';
 import whiteSearchIcon from '../../assets/images/icons/white-search-icon.png';
-import useAxios from '../../hooks/useAxios';
+import { reqInterface } from '../../interfaces';
+import axios from 'axios';
 
 const STORAGE_KEY = 'countries';
 
 function Home({ currentTheme }: HomePageProps) {
-  const [apiCallURL, setApiCallURL] = useState<string>('https://restcountries.com/v3.1/all');
-  const [countries] = useAxios(apiCallURL, STORAGE_KEY);
+  const [countries, setCountries] = useState<reqInterface[] | null>(null);
 
   const [inputValue, setInputValue] = useState<string>('');
   const [selectValue, setSelectValue] = useState<string>('initial');
 
   useEffect(() => {
-    if (selectValue === 'initial') return;
+    let item = localStorage.getItem(STORAGE_KEY);
 
-    localStorage.removeItem(STORAGE_KEY);
-    setApiCallURL(`https://restcountries.com/v3.1/region/${selectValue}`);
-  }, [selectValue]);
+    if(item) {
+      setCountries(JSON.parse(item));
+      return;
+    }
 
-  useEffect(() => {
-    if (inputValue === '') return;
+    (async() => {
+      try {
+        const res = await axios.get('https://restcountries.com/v3.1/all');
+        const data = await res.data;
 
-    localStorage.removeItem(STORAGE_KEY);
-    setApiCallURL(`https://restcountries.com/v3.1/name/${inputValue}`);
-  }, [inputValue]);
+        setCountries(data);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch (err) {
+        console.error(err);
+      }
+    })();
+  }, []);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
