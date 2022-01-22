@@ -4,11 +4,21 @@ import { reqInterface } from '../interfaces';
 
 type ResponseType = reqInterface[];
 
-function useAxios(url: string): [ResponseType | null, boolean] {
+function useAxios(url:string, storageKey?:string): [ResponseType | null, boolean] {
   const [response, setResponse] = useState<ResponseType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    if(storageKey) {
+      let item = localStorage.getItem(storageKey);
+
+      if(item) {
+        setResponse(JSON.parse(item));
+        setLoading(false);
+        return;
+      }
+    }
+
     (async () => {
       try {
         const resp = await axios.get(url);
@@ -16,11 +26,15 @@ function useAxios(url: string): [ResponseType | null, boolean] {
 
         setResponse(data);
         setLoading(false);
+
+        if(storageKey) {
+          localStorage.setItem(storageKey, JSON.stringify(data));
+        }
       } catch (err) {
         console.error(err);
       }
     })();
-  }, [url]);
+  }, [url, storageKey]);
 
   return [response, loading];
 }
