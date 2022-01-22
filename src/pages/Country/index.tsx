@@ -11,7 +11,7 @@ import useAxios from '../../hooks/useAxios';
 function Country({currentTheme}: CountryPageProps) {
   const params = useParams();
 
-  const [countryResponse, isCountryLoading] = useAxios(`https://restcountries.com/v3.1/alpha/${params.countryId}`);
+  const [countryResponse] = useAxios(`https://restcountries.com/v3.1/alpha/${params.countryId}`);
 
   const countryInfoHelper = [
     {

@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 import { HomePageProps } from '../interfaces';
 
@@ -12,10 +12,8 @@ import useAxios from '../../hooks/useAxios';
 const STORAGE_KEY = 'countries';
 
 function Home({ currentTheme }: HomePageProps) {
-  const firstRender = useRef(true);
-
   const [apiCallURL, setApiCallURL] = useState<string>('https://restcountries.com/v3.1/all');
-  const [countries, isCountriesLoading] = useAxios(apiCallURL, STORAGE_KEY);
+  const [countries] = useAxios(apiCallURL, STORAGE_KEY);
 
   const [inputValue, setInputValue] = useState<string>('');
   const [selectValue, setSelectValue] = useState<string>('initial');
