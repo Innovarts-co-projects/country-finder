@@ -15,9 +15,12 @@ function useAxios(url:string, storageKey?:string): [ResponseType | null, boolean
       if(item) {
         setResponse(JSON.parse(item));
         setLoading(false);
+        console.log('no req');
         return;
       }
     }
+
+    console.log('req');
 
     (async () => {
       try {

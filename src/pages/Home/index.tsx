@@ -9,40 +9,13 @@ import CountryCard from '../../components/CountryCard';
 import blackSearchIcon from '../../assets/images/icons/black-search-icon.png';
 import whiteSearchIcon from '../../assets/images/icons/white-search-icon.png';
 import { reqInterface } from '../../interfaces';
+import useAxios from '../../hooks/useAxios';
 
 function Home({ currentTheme }: HomePageProps) {
-  const [countries, setCountries] = useState<reqInterface[] | null>(() => {
-    let item = localStorage.getItem('countries');
-
-    if(item) {
-      return JSON.parse(item);
-    }
-
-    return null;
-  });
+  const [countries, setCountries] = useAxios('https://restcountries.com/v3.1/all', 'countries');
 
   const [inputValue, setInputValue] = useState<string>('');
   const [selectValue, setSelectValue] = useState<string>('initial');
-
-  useEffect(() => {
-    if(countries !== null) return;
-    
-    (async() => {
-      try {
-        const countriesReq = await axios.get<reqInterface[]>('https://restcountries.com/v3.1/all');
-
-        setCountries(countriesReq.data);
-      } catch (err) {
-        console.error(err);
-      }
-    })();
-  }, [countries]);
-
-  useEffect(() => {
-    if(countries === null) return;
-
-    localStorage.setItem('countries', JSON.stringify(countries));
-  }, [countries]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
