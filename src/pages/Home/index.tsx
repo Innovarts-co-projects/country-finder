@@ -27,6 +27,13 @@ function Home({ currentTheme }: HomePageProps) {
     setApiCallURL(`https://restcountries.com/v3.1/region/${selectValue}`);
   }, [selectValue]);
 
+  useEffect(() => {
+    if (inputValue === '') return;
+
+    localStorage.removeItem(STORAGE_KEY);
+    setApiCallURL(`https://restcountries.com/v3.1/name/${inputValue}`);
+  }, [inputValue]);
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   }
