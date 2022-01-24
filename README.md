@@ -40,7 +40,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github Repository](https://github.com/whoiscaio/country-finder)
-- Live Site: [Vercel](https://country-finder-five.vercel.app/)
+- Live Site: [Vercel](https://country-finder-whoiscaio.vercel.app/)
 
 ## My process
 
