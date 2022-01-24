@@ -64,5 +64,5 @@ This one was my very first project using Typescript. It was definitely an amazin
 ## Author
 
 - Github - [@whoiscaio](https://www.github.com/whoiscaio)
-- Twitter - [Caio Lima](https://www.linkedin.com/in/lima-caio)
+- Linkedin - [Caio Lima](https://www.linkedin.com/in/lima-caio)
 - Frontend Mentor - [@whoiscaio](https://www.frontendmentor.io/profile/whoiscaio)
