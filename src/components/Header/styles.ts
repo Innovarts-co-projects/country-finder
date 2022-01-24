@@ -47,6 +47,17 @@ const HeaderContainer = styled.header`
       margin-right: 1rem;
     }
   }
+
+  @media (max-width: 400px) {
+    #theme-text {
+      display: none;
+    }
+
+    button img {
+      width: 3rem;
+      margin-right: 0;
+    }
+  }
 `;
 
 export { HeaderContainer };

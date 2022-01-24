@@ -20,12 +20,12 @@ function Header({ currentTheme, changeTheme }: HeaderProps) {
             currentTheme === 'light' ? (
               <>
                 <img src={moon} alt="Dark Mode Icon" />
-                <span>Dark Mode</span>
+                <span id="theme-text">Dark Mode</span>
               </>
             ) : (
               <>
                 <img src={sun} alt="Light Mode Icon" />
-                <span>Light Mode</span>
+                <span id="theme-text">Light Mode</span>
               </>
             )
           }
