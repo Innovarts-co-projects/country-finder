@@ -41,6 +41,18 @@ const CountryCardContainer = styled.div`
       }
     }
   }
+
+  @media (max-width: 950px) {
+    width: 27%;
+  }
+
+  @media (max-width: 650px) {
+    width: 46%;
+  }
+
+  @media (max-width: 450px) {
+    width: 95%;
+  }
 `;
 
 export { CountryCardContainer };

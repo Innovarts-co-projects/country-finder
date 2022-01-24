@@ -23,6 +23,8 @@ const HomePageContainer = styled.main`
 
       display: flex;
       align-items: center;
+
+      margin-bottom: 3rem;
     }
 
     select.input-pattern {
@@ -34,6 +36,9 @@ const HomePageContainer = styled.main`
       background-repeat: no-repeat;
       background-position: 90% center;
       background-size: 11px;
+
+      width: 100%;
+      max-width: 20rem;
 
       padding-right: 5rem;
     }
@@ -57,6 +62,10 @@ const HomePageContainer = styled.main`
 
       margin-right: 2rem;
     }
+
+    @media (max-width: 500px) {
+    flex-direction: column;
+  }
   }
 
   .countries {
@@ -64,6 +73,10 @@ const HomePageContainer = styled.main`
     justify-content: space-between;
 
     flex-wrap: wrap;
+
+    @media (max-width: 450px) {
+      justify-content: center;
+    }
   }
 `;
 
