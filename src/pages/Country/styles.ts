@@ -46,6 +46,41 @@ const CountryPageContainer = styled.main`
       padding: 3rem 5vw;
     }
 
+    .border-countries {
+      max-width: 40rem;
+      
+      display: flex;
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      h3 {
+        font-size: 1.8rem;
+
+        margin-right: 1.6rem;
+      }
+
+      .border {
+        background: ${({ theme }) => theme.color.elements};
+        border-radius: ${({ theme }) => theme.measure.borderRadius};
+
+        margin: 0 1rem 1rem 0;
+        padding: .8rem;
+
+        transition: transform .24s ease-out;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      a {
+        color: ${({ theme }) => theme.color.text};
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+    }
+
     header {
       font-size: 3.2rem;
       margin-bottom: 3rem;

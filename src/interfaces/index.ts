@@ -8,6 +8,7 @@ export interface reqInterface {
     }
   },
   capital: string[],
+  borders: string[],
   region: string,
   subregion: string,
   flags: {

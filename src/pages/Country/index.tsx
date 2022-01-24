@@ -46,6 +46,7 @@ function Country({currentTheme}: CountryPageProps) {
         const res = await axios.get(`https://restcountries.com/v3.1/alpha/${params.countryId}`);
         const data = await res.data[0];
 
+        console.log(data);
         setCountry(data);
       } catch (err) {
         console.error(err);
@@ -77,6 +78,14 @@ function Country({currentTheme}: CountryPageProps) {
                     <CountryInfo name={name} value={value} key={name} />
                   )
                 }
+              </div>
+              <div className="border-countries">
+                <h3>Border countries:</h3>
+                { country.borders.map((border) => (
+                  <div key={border} className="border">
+                    <Link to={`/country/id/${border}`}>{border}</Link>
+                  </div>
+                )) }
               </div>
             </div>
           </div>
