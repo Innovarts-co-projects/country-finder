@@ -79,14 +79,18 @@ function Country({currentTheme}: CountryPageProps) {
                   )
                 }
               </div>
-              <div className="border-countries">
-                <h3>Border countries:</h3>
-                { country.borders.map((border) => (
-                  <div key={border} className="border">
-                    <Link to={`/country/id/${border}`}>{border}</Link>
+              {
+                country.borders && (
+                  <div className="border-countries">
+                    <h3>Border countries:</h3>
+                    { country.borders.map((border) => (
+                      <div key={border} className="border">
+                        <Link to={`/country/id/${border}`}>{border}</Link>
+                      </div>
+                    )) }
                   </div>
-                )) }
-              </div>
+                )
+              }
             </div>
           </div>
         )

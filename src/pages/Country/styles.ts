@@ -93,6 +93,10 @@ const CountryPageContainer = styled.main`
         margin-bottom: .8rem;
       }
     }
+
+    @media (max-width: 700px) {
+      flex-direction: column;
+    }
   }
 `;
 
