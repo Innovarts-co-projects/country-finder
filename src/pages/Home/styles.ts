@@ -24,7 +24,9 @@ const HomePageContainer = styled.main`
       display: flex;
       align-items: center;
 
-      margin-bottom: 3rem;
+      @media (max-width: 500px) {
+        margin-bottom: 2rem;
+      }
     }
 
     select.input-pattern {
