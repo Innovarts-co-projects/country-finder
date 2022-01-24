@@ -26,6 +26,14 @@ const CountryPageContainer = styled.main`
       width: 1.5rem;
       margin-right: 1rem;
     }
+
+    @media (max-width: 600px) {
+      margin: 5rem 0;
+    }
+
+    @media (max-width: 500px) {
+      margin: 4rem 0;
+    }
   }
 
   .country-info-wrapper {
