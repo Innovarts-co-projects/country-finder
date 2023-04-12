@@ -1,68 +1,61 @@
-# Frontend Mentor - REST Countries API with color theme switcher solution
 
-This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
+# Country Finder
 
-## Table of contents
+Página com uma listagem de todos os países existentes no globo, com mecanismo de filtragem por nome e por continente, tal como uma página separada para visualização de detalhes mais específicos do país.
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
+A página também possui um esquema de temas, podendo variar do tema dark para o tema light apenas com o clique de um botão no cabeçalho da página.
 
-## Overview
+## Índice
 
-### The challenge
+- [Screenshots](#screenshots)
+- [Links](#links)
+- [Para desenvolvedores](#para-desenvolvedores)
+  - [Rodando localmente](#rodando-localmente)
+  - [Licença](#licença)
+### Screenshots
 
-Users should be able to:
-
-- See all countries from the API on the homepage
-- Search for a country using an `input` field
-- Filter countries by region
-- Click on a country to see more detailed information on a separate page
-- Click through to the border countries on the detail page
-- Toggle the color scheme between light and dark mode *(optional)*
-
-### Screenshot
-
-#### Desktop Version
-
-![](./.github/desktop-screenshot.png)
-
-#### Mobile Version
-
-![](./.github/mobile-screenshot.png)
+![App Screenshot](./.github/desktop-screenshot.png)
 
 ### Links
 
-- Solution URL: [Github Repository](https://github.com/whoiscaio/country-finder)
-- Live Site: [Vercel](https://country-finder-whoiscaio.vercel.app/)
+Visualize a página através desse [link](https://country-finder-whoiscaio.vercel.app/).
 
-## My process
+### Tecnologias
 
-### Built with
+HTML - Linguagem de marcação para estruturação da página.
+CSS - Linguagem de estilização para definição de estilos aos elementos.
+Typescript - Linguagem de programação baseada em Javascript com tipagens.
+React - Framework Javascript para o desenvolvimento de UIs reativas.
+Context API - Biblioteca React para a manipulação de estados globais.
+Redux / Redux Toolkit - Biblioteca React para o gerenciamento de estados globais.
+Styled-Components - Biblioteca React para a criação de componentes estilizados.
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- [React](https://reactjs.org/) - JS library
-- [Styled Components](https://styled-components.com/) - For styles
-- [Typescript](https://www.typescriptlang.org/) - Javascript with type syntax
+## Rodando localmente
 
-### What I learned
+Clone o projeto
 
-This one was my very first project using Typescript. It was definitely an amazing experience, i've been learning Typescript for almost a month and to be able to build a complete project with it is an incredible sensation. I learned a lot about this language, mainly how to use it with other React tools such as Styled Components and Axios (typing the request expected values interface).
+```bash
+  git clone https://github.com/whoiscaio/country-finder
+```
 
-### Useful resources
+Entre no diretório do projeto
 
-- [Theme with Styled Components and Typescript](https://medium.com/rbi-tech/theme-with-styled-components-and-typescript-209244ec15a3) - This article was very important during the development process to overcome some typing issues that i had with using styled-components on a typescript project.
+```bash
+  cd country-finder
+```
 
-## Author
+Instale as dependências
 
-- Github - [@whoiscaio](https://www.github.com/whoiscaio)
-- Linkedin - [Caio Lima](https://www.linkedin.com/in/lima-caio)
-- Frontend Mentor - [@whoiscaio](https://www.frontendmentor.io/profile/whoiscaio)
+```bash
+  npm install
+```
+
+Inicie o servidor
+
+```bash
+  npm run start
+```
+
+### Licença
+
+[MIT](https://choosealicense.com/licenses/mit/)
