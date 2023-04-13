@@ -1,17 +1,21 @@
 
 # Country Finder
 
-Página com uma listagem de todos os países existentes no globo, com mecanismo de filtragem por nome e por continente, tal como uma página separada para visualização de detalhes mais específicos do país.
-
-A página também possui um esquema de temas, podendo variar do tema dark para o tema light apenas com o clique de um botão no cabeçalho da página.
-
 ## Índice
 
+- [Sobre](#sobre)
 - [Screenshots](#screenshots)
 - [Links](#links)
 - [Para desenvolvedores](#para-desenvolvedores)
   - [Rodando localmente](#rodando-localmente)
   - [Licença](#licença)
+
+### Sobre
+
+Página com uma listagem de todos os países existentes no globo, com mecanismo de filtragem por nome e por continente, tal como uma página separada para visualização de detalhes mais específicos do país.
+
+A página também possui um esquema de temas, podendo variar do tema dark para o tema light apenas com o clique de um botão no cabeçalho da página.
+
 ### Screenshots
 
 ![App Screenshot](./.github/desktop-screenshot.png)
@@ -19,6 +23,8 @@ A página também possui um esquema de temas, podendo variar do tema dark para o
 ### Links
 
 Visualize a página através desse [link](https://country-finder-whoiscaio.vercel.app/).
+
+## Para desenvolvedores
 
 ### Tecnologias
 
@@ -30,7 +36,7 @@ Context API - Biblioteca React para a manipulação de estados globais.
 Redux / Redux Toolkit - Biblioteca React para o gerenciamento de estados globais.
 Styled-Components - Biblioteca React para a criação de componentes estilizados.
 
-## Rodando localmente
+### Rodando localmente
 
 Clone o projeto
 
